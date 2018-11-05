@@ -17,10 +17,10 @@ const getFileType = path => {
   try {
     const stat = fs.statSync(path);
 
-    console.log(stat);
+    // console.log(stat);
 
     if(stat.isFile()){
-      console.log(FileType.File);
+      // console.log(FileType.File);
       return FileType.File;
     }
 
@@ -60,7 +60,6 @@ const listFiles = dirPath => {
         break;
 
       case FileType.Directory:
-      console.log(...listFiles(path));
         ret.push(...listFiles(path));
         break;
 
@@ -72,13 +71,14 @@ const listFiles = dirPath => {
   return ret;
 };
 
-const dirPath = path.resolve(__dirname, '../S3');
+// const dirPath = path.resolve(__dirname, '../S3/beauty');
+const dirPath = path.resolve(__dirname, '../S3/fashion');
 const list = listFiles(dirPath);
 
-// console.log(list);
+console.log(list);
 
-const text=fs.readFileSync('src.txt', 'utf8');
-fs.write('out.txt',text);
+// const text=fs.readFileSync('src.txt', 'utf8');
+// fs.write('out.txt',text);
 
 
 
