@@ -60,6 +60,7 @@ const listFiles = dirPath => {
         break;
 
       case FileType.Directory:
+      console.log(...listFiles(path));
         ret.push(...listFiles(path));
         break;
 
@@ -74,7 +75,7 @@ const listFiles = dirPath => {
 const dirPath = path.resolve(__dirname, '../S3');
 const list = listFiles(dirPath);
 
-console.log(list);
+// console.log(list);
 
 const text=fs.readFileSync('src.txt', 'utf8');
 fs.write('out.txt',text);
