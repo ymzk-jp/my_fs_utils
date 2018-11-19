@@ -71,11 +71,14 @@ const listFiles = dirPath => {
   return ret;
 };
 
+
 // const dirPath = path.resolve(__dirname, '../S3/beauty');
-const dirPath = path.resolve(__dirname, '../S3/fashion');
+const dirPath = path.resolve(__dirname, '../S3/profile_photos/beauty');
 const list = listFiles(dirPath);
 
 console.log(list);
+fs.writeFile('out.txt', list);
+
 
 // const text=fs.readFileSync('src.txt', 'utf8');
 // fs.write('out.txt',text);
